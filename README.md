@@ -15,5 +15,4 @@ npm install
 npm run dev       # dev-сервер
 npm run build     # production-сборка в dist/
 npm run lint      # ESLint
-npm test          # модульные тесты
 ```
