@@ -1,0 +1,159 @@
+:root {
+  --accent: #ff9501;
+  --accent-hover: #ffaa33;
+  --white: #ffffff;
+  --page: #323232;
+  --panel: #212121;
+  --card: #fff3e3;
+  --grey: #d9d9d9;
+
+  --page-width: 1432px;
+  --content-width: 1250px;
+  --hero-height: 470px;
+  --hero-bg-height: 700px;
+
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--white);
+  background: var(--page);
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--page);
+}
+
+img {
+  max-width: 100%;
+}
+
+main {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+}
+
+[id] {
+  scroll-margin-top: 24px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.btn {
+  padding: 8px 30px;
+  border: 0;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn--accent {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.btn--accent:hover {
+  background: var(--accent-hover);
+}
+
+.btn:focus-visible,
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.shop {
+  display: grid;
+  grid-template-columns: 334px 850px;
+  justify-content: center;
+  gap: 34px;
+  align-items: start;
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.shop > * {
+  min-width: 0;
+}
+
+.shop > .filters {
+  align-self: stretch;
+}
+
+@media (max-width: 1240px) {
+  .shop {
+    grid-template-columns: 300px 1fr;
+    gap: 24px;
+    padding: 0 16px;
+  }
+  .shop > .filters {
+    padding-inline: 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --hero-height: 360px;
+    --hero-bg-height: 600px;
+  }
+  .shop {
+    grid-template-columns: 1fr;
+  }
+  .shop > .filters {
+    display: none;
+    order: 1;
+  }
+  .shop > .filters--open {
+    display: block;
+  }
+  .shop > .catalog {
+    order: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --hero-height: 280px;
+    --hero-bg-height: 420px;
+  }
+  .shop {
+    padding: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

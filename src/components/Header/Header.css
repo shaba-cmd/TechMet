@@ -1,0 +1,149 @@
+.header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 10;
+  background: rgba(24, 24, 24, 0.82);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  max-width: var(--page-width);
+  height: 120px;
+  margin: 0 auto;
+  padding: 0 46px;
+}
+
+.header__nav ul {
+  display: flex;
+  gap: 69px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header__nav a,
+.drawer__panel a {
+  color: var(--white);
+  font-size: 22px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.header__nav a:hover,
+.drawer__panel a:hover {
+  color: var(--accent);
+}
+
+.burger {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  height: 2px;
+  background: var(--accent);
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+.burger--open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.burger--open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger--open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+}
+
+.drawer[hidden] {
+  display: none;
+}
+
+.drawer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.drawer__panel {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: min(360px, 85vw);
+  padding: 120px 40px 40px;
+  background: var(--panel);
+  animation: drawer-in 0.25s ease-out;
+}
+
+.drawer__panel ul {
+  display: grid;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.drawer__contacts {
+  display: grid;
+  gap: 8px;
+  margin-top: 48px;
+}
+
+.drawer__contacts a {
+  font-size: 16px;
+  color: var(--accent);
+}
+
+@keyframes drawer-in {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 1200px) {
+  .header__nav ul {
+    gap: 36px;
+  }
+  .header__nav a {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 960px) {
+  .header__nav {
+    display: none;
+  }
+  .header__inner {
+    height: 80px;
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header .logo {
+    --logo-size: 28px;
+    gap: 12px;
+  }
+}

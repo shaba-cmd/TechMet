@@ -1,0 +1,24 @@
+.logo {
+  --logo-size: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.logo__text {
+  font-size: var(--logo-size);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.logo__accent {
+  color: var(--accent);
+}
+
+.logo svg {
+  width: var(--logo-size);
+  height: var(--logo-size);
+}

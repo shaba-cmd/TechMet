@@ -1,0 +1,145 @@
+.catalog {
+  background: var(--panel);
+  color: var(--white);
+}
+
+.catalog__tabs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-bottom: 2px solid #3b3b3b;
+}
+
+.catalog__tabs button {
+  height: 48px;
+  padding: 0 8px;
+  background: none;
+  border: 0;
+  color: var(--white);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.catalog__tabs button:hover {
+  background: #2a2a2a;
+}
+
+.catalog__tabs button.is-active {
+  background: #333;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.catalog__body {
+  padding: 30px 40px 50px;
+}
+
+.catalog__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.catalog__found {
+  margin: 0;
+  color: #b5b5b5;
+  font-size: 13px;
+}
+
+.catalog__sort {
+  height: 27px;
+  padding: 0 28px 0 8px;
+  background: #4a4a4a
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6'%3E%3Cpath d='M0 0h8L4 6z' fill='%23FF9501'/%3E%3C/svg%3E")
+    no-repeat right 10px center;
+  border: 0;
+  color: #d0d0d0;
+  font: inherit;
+  font-size: 12px;
+  appearance: none;
+  cursor: pointer;
+}
+
+.catalog__filters-toggle {
+  display: none;
+}
+
+.catalog__title {
+  margin: 34px 0 38px;
+  color: var(--accent);
+  font-size: 32px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.catalog__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px 55px;
+}
+
+.catalog__empty {
+  padding: 60px 0;
+  color: #b5b5b5;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .catalog__grid {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .catalog__filters-toggle {
+    display: block;
+    margin-left: auto;
+    padding: 4px 14px;
+    background: var(--accent);
+    border: 0;
+    color: var(--white);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 760px) {
+  .catalog__tabs {
+    display: flex;
+    overflow-x: auto;
+  }
+  .catalog__tabs button {
+    flex: none;
+    padding: 0 16px;
+  }
+  .catalog__body {
+    padding: 24px 16px 40px;
+  }
+  .catalog__toolbar {
+    flex-wrap: wrap;
+  }
+  .catalog__found {
+    width: 100%;
+  }
+  .catalog__filters-toggle {
+    margin-left: 0;
+  }
+  .catalog__title {
+    font-size: 24px;
+  }
+  .catalog__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .catalog__grid {
+    grid-template-columns: 1fr;
+  }
+}

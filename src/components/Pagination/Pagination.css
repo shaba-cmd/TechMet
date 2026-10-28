@@ -1,0 +1,32 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin-top: 60px;
+}
+
+.pagination button,
+.pagination__gap {
+  min-width: 18px;
+  padding: 2px 2px;
+  background: none;
+  border: 0;
+  color: var(--white);
+  font: inherit;
+  font-size: 14px;
+}
+
+.pagination button {
+  cursor: pointer;
+}
+
+.pagination button:hover,
+.pagination button.is-current {
+  color: var(--accent);
+}
+
+.pagination button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
