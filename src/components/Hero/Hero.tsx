@@ -1,7 +1,7 @@
-import hero1 from '../assets/hero/hero-1.jpg'
-import hero2 from '../assets/hero/hero-2.jpg'
-import hero3 from '../assets/hero/hero-3.jpg'
-import hero4 from '../assets/hero/hero-4.jpg'
+import hero1 from '../../assets/hero/hero-1.jpg'
+import hero2 from '../../assets/hero/hero-2.jpg'
+import hero3 from '../../assets/hero/hero-3.jpg'
+import hero4 from '../../assets/hero/hero-4.jpg'
 import './Hero.css'
 
 const STRIPS = [hero1, hero2, hero3, hero4]

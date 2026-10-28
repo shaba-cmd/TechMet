@@ -2,7 +2,7 @@ import { TABS, type Product, type TabId } from "../../data/catalog";
 import { SORT_OPTIONS, type Page, type SortOrder } from "../../utils/filter";
 import { Pagination } from "../Pagination/Pagination";
 import { ProductCard } from "../ProductCard/ProductCard";
-import "../Catalog.css";
+import "./Catalog.css";
 
 interface Props {
   tab: TabId;
