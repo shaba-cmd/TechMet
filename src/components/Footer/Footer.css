@@ -6,11 +6,9 @@
 
 .footer__inner {
   display: grid;
-  grid-template-columns: 368px 476px 334px;
-  align-items: start;
-  max-width: var(--content-width);
-  margin: 0 auto;
-  padding: 0 16px 0 40px;
+  grid-template-columns: 435px 580px 405px;
+  max-width: var(--page-width);
+  margin: 0 auto; 
 }
 
 .footer__logo {
@@ -49,7 +47,7 @@
   text-align: center;
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 1500px) {
   .footer__inner {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;

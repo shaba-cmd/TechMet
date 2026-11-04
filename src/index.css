@@ -7,10 +7,9 @@
   --card: #fff3e3;
   --grey: #d9d9d9;
 
-  --page-width: 1432px;
-  --content-width: 1250px;
+  --page-width: 1420px;
   --hero-height: 470px;
-  --hero-bg-height: 700px;
+  --hero-bg-height: 1000px;
 
   font-family: 'Montserrat', system-ui, sans-serif;
   font-size: 16px;
@@ -89,9 +88,9 @@ summary:focus-visible {
 
 .shop {
   display: grid;
-  grid-template-columns: 334px 850px;
+  grid-template-columns: 385px 1000px;
   justify-content: center;
-  gap: 34px;
+  gap: 35px;
   align-items: start;
   max-width: var(--content-width);
   margin: 0 auto;
