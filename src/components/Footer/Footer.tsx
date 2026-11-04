@@ -29,7 +29,7 @@ export function Footer({ subject, onClearSubject }: Props) {
             ))}
           </ul>
         </nav>
-
+      
         <div className="footer__col" id="request">
           <h2 className="footer__title">Оставить заявку</h2>
           <RequestForm subject={subject} onClearSubject={onClearSubject} />
