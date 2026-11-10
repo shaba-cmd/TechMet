@@ -1,24 +1,25 @@
-import { useEffect, useState } from 'react'
-import { Logo } from '../Logo/Logo'
-import './Header.css'
+import { useEffect, useState } from "react";
+import { Logo } from "../Logo/Logo";
+import "./Header.css";
 
 const NAV = [
-  { href: '#catalog', title: 'Аренда' },
-  { href: '#company', title: 'Компания' },
-  { href: '#faq', title: 'FAQ' },
-  { href: '#about', title: 'О нас' },
-  { href: '#request', title: 'Контакты' },
-]
+  { href: "#catalog", title: "Аренда" },
+  { href: "#company", title: "Компания" },
+  { href: "#faq", title: "FAQ" },
+  { href: "#about", title: "О нас" },
+  { href: "#request", title: "Контакты" },
+];
 
 export function Header() {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (!menuOpen) return
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setMenuOpen(false)
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [menuOpen])
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) =>
+      e.key === "Escape" && setMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
 
   const links = NAV.map((item) => (
     <li key={item.href}>
@@ -26,7 +27,7 @@ export function Header() {
         {item.title}
       </a>
     </li>
-  ))
+  ));
 
   return (
     <header className="header">
@@ -37,8 +38,8 @@ export function Header() {
         </nav>
         <button
           type="button"
-          className={`burger${menuOpen ? ' burger--open' : ''}`}
-          aria-label={menuOpen ? 'Закрыть меню' : 'Открыть меню'}
+          className={`burger${menuOpen ? " burger--open" : ""}`}
+          aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}
           aria-expanded={menuOpen}
           aria-controls="drawer"
           onClick={() => setMenuOpen((v) => !v)}
@@ -49,7 +50,11 @@ export function Header() {
         </button>
       </div>
 
-      <div className={`drawer${menuOpen ? ' drawer--open' : ''}`} id="drawer" hidden={!menuOpen}>
+      <div
+        className={`drawer${menuOpen ? " drawer--open" : ""}`}
+        id="drawer"
+        hidden={!menuOpen}
+      >
         <div className="drawer__backdrop" onClick={() => setMenuOpen(false)} />
         <nav className="drawer__panel" aria-label="Мобильное меню">
           <ul>{links}</ul>
@@ -60,5 +65,5 @@ export function Header() {
         </nav>
       </div>
     </header>
-  )
+  );
 }

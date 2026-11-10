@@ -1,7 +1,7 @@
-import logo from '../assets/logo.svg'
+import logo from "../assets/logo.svg";
 
 export function LogoIcon() {
-  return <img src={logo} width={260} height={55} alt="ТехМЕТ" />
+  return <img src={logo} width={260} height={55} alt="ТехМЕТ" />;
 }
 
 export function SearchIcon() {

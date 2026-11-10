@@ -6,7 +6,7 @@
 
 .price-range__track::before,
 .price-range__fill {
-  content: '';
+  content: "";
   position: absolute;
   top: 6px;
   height: 3px;

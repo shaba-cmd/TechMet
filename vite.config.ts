@@ -3,8 +3,12 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // Относительные пути к ресурсам: сайт работает и в корне домена,
-  // и в подкаталоге GitHub Pages (https://<user>.github.io/TechMet/).
-  base: './',
   plugins: [react()],
+  server: {
+    // В режиме разработки запросы к API и загруженным картинкам идут на сервер Express.
+    proxy: {
+      '/api': 'http://localhost:3001',
+      '/uploads': 'http://localhost:3001',
+    },
+  },
 })

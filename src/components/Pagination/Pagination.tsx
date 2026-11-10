@@ -1,22 +1,27 @@
-import { pageNumbers } from '../../utils/filter'
-import './Pagination.css'
+import { pageNumbers } from "../../utils/filter";
+import "./Pagination.css";
 
 interface Props {
-  page: number
-  pageCount: number
-  onChange: (page: number) => void
+  page: number;
+  pageCount: number;
+  onChange: (page: number) => void;
 }
 
 export function Pagination({ page, pageCount, onChange }: Props) {
-  if (pageCount <= 1) return null
+  if (pageCount <= 1) return null;
 
   return (
     <nav className="pagination" aria-label="Страницы каталога">
-      <button type="button" disabled={page === 1} aria-label="Предыдущая страница" onClick={() => onChange(page - 1)}>
+      <button
+        type="button"
+        disabled={page === 1}
+        aria-label="Предыдущая страница"
+        onClick={() => onChange(page - 1)}
+      >
         ‹
       </button>
       {pageNumbers(page, pageCount).map((n, i) =>
-        n === '…' ? (
+        n === "…" ? (
           <span key={`gap-${i}`} className="pagination__gap">
             …
           </span>
@@ -24,8 +29,8 @@ export function Pagination({ page, pageCount, onChange }: Props) {
           <button
             key={n}
             type="button"
-            className={n === page ? 'is-current' : undefined}
-            aria-current={n === page ? 'page' : undefined}
+            className={n === page ? "is-current" : undefined}
+            aria-current={n === page ? "page" : undefined}
             onClick={() => onChange(n)}
           >
             {n}
@@ -41,5 +46,5 @@ export function Pagination({ page, pageCount, onChange }: Props) {
         ›
       </button>
     </nav>
-  )
+  );
 }

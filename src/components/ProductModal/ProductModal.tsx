@@ -1,23 +1,23 @@
-import { useEffect, useRef } from 'react'
-import type { Product } from '../../data/catalog'
-import { formatPrice } from '../../utils/filter'
-import './ProductModal.css'
+import { useEffect, useRef } from "react";
+import type { Product } from "../../data/catalog";
+import { formatPrice } from "../../utils/filter";
+import "./ProductModal.css";
 
 interface Props {
-  product: Product | null
-  onClose: () => void
-  onRequest: (product: Product) => void
+  product: Product | null;
+  onClose: () => void;
+  onRequest: (product: Product) => void;
 }
 
 export function ProductModal({ product, onClose, onRequest }: Props) {
-  const ref = useRef<HTMLDialogElement>(null)
+  const ref = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    const dialog = ref.current
-    if (!dialog) return
-    if (product && !dialog.open) dialog.showModal()
-    if (!product && dialog.open) dialog.close()
-  }, [product])
+    const dialog = ref.current;
+    if (!dialog) return;
+    if (product && !dialog.open) dialog.showModal();
+    if (!product && dialog.open) dialog.close();
+  }, [product]);
 
   return (
     <dialog
@@ -29,7 +29,12 @@ export function ProductModal({ product, onClose, onRequest }: Props) {
     >
       {product && (
         <div className="modal__body">
-          <button type="button" className="modal__close" aria-label="Закрыть" onClick={onClose}>
+          <button
+            type="button"
+            className="modal__close"
+            aria-label="Закрыть"
+            onClick={onClose}
+          >
             ×
           </button>
           <img className="modal__image" src={product.image} alt="" />
@@ -54,12 +59,16 @@ export function ProductModal({ product, onClose, onRequest }: Props) {
             <p className="modal__price">
               от <strong>{formatPrice(product.pricePerHour)} ₽</strong> / час
             </p>
-            <button type="button" className="btn btn--accent" onClick={() => onRequest(product)}>
+            <button
+              type="button"
+              className="btn btn--accent"
+              onClick={() => onRequest(product)}
+            >
               Оставить заявку
             </button>
           </div>
         </div>
       )}
     </dialog>
-  )
+  );
 }
