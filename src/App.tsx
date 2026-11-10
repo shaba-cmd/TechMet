@@ -6,7 +6,8 @@ import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
 import { Hero } from "./components/Hero/Hero";
 import { ProductModal } from "./components/ProductModal/ProductModal";
-import { PRODUCTS, type Product, type TabId } from "./data/catalog";
+import type { Product, TabId } from "./data/catalog";
+import { useProducts } from "./hooks/useProducts";
 import { DEFAULT_FILTERS, useSavedFilters } from "./hooks/useSavedFilters";
 import {
   filterProducts,
@@ -19,6 +20,7 @@ import {
 const PER_PAGE = 9;
 
 function App() {
+  const products = useProducts();
   const [applied, saveFilters] = useSavedFilters();
   const [draft, setDraft] = useState<FilterValues>(applied);
   const [tab, setTab] = useState<TabId>("rent");
@@ -29,8 +31,8 @@ function App() {
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   const found = useMemo(
-    () => sortProducts(filterProducts(PRODUCTS, tab, applied), sort),
-    [tab, applied, sort],
+    () => sortProducts(filterProducts(products, tab, applied), sort),
+    [products, tab, applied, sort],
   );
   const page = paginate(found, pageNumber, PER_PAGE);
 
