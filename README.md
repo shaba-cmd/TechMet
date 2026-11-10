@@ -26,8 +26,8 @@ npm run lint      # ESLint
 - **База данных** — файл `server/data/db.json`. Создаётся при первом запуске сервера из `src/data/products.json`.
   Посмотреть содержимое можно в редакторе или в браузере: http://localhost:3001/api/products.
 - **Загруженные фотографии** сохраняются в `server/uploads/`.
-- **Админ-панель:** http://localhost:3001/#/admin (в режиме разработки — http://localhost:5173/#/admin).
-  Логин `admin`, пароль `techmet2026`. Свои значения задаются переменными окружения `ADMIN_LOGIN` и `ADMIN_PASSWORD`.
+- **Админ-панель:** http://localhost:3001/#/admin.
+  Логин `admin`, пароль `igr2007`. Свои значения задаются переменными окружения `ADMIN_LOGIN` и `ADMIN_PASSWORD`.
 
 | Метод | Адрес | Доступ | Действие |
 |---|---|---|---|
