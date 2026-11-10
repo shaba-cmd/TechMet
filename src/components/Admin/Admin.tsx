@@ -1,35 +1,37 @@
-import { useEffect, useState } from 'react'
-import { api, clearToken, getToken } from '../../api/client'
-import { Logo } from '../Logo/Logo'
-import { AdminLogin } from './AdminLogin'
-import { AdminProducts } from './AdminProducts'
-import './Admin.css'
+import { useEffect, useState } from "react";
+import { api, clearToken, getToken } from "../../api/client";
+import { Logo } from "../Logo/Logo";
+import { AdminLogin } from "./AdminLogin";
+import { AdminProducts } from "./AdminProducts";
+import "./Admin.css";
 
-type Status = 'checking' | 'guest' | 'admin'
+type Status = "checking" | "guest" | "admin";
 
 export function Admin() {
-  const [status, setStatus] = useState<Status>(() => (getToken() ? 'checking' : 'guest'))
+  const [status, setStatus] = useState<Status>(() =>
+    getToken() ? "checking" : "guest",
+  );
 
   useEffect(() => {
-    if (status !== 'checking') return
-    let cancelled = false
+    if (status !== "checking") return;
+    let cancelled = false;
     api
       .me()
-      .then(() => !cancelled && setStatus('admin'))
+      .then(() => !cancelled && setStatus("admin"))
       .catch(() => {
-        clearToken()
-        if (!cancelled) setStatus('guest')
-      })
+        clearToken();
+        if (!cancelled) setStatus("guest");
+      });
     return () => {
-      cancelled = true
-    }
-  }, [status])
+      cancelled = true;
+    };
+  }, [status]);
 
   const logout = () => {
-    api.logout().catch(() => {})
-    clearToken()
-    setStatus('guest')
-  }
+    api.logout().catch(() => {});
+    clearToken();
+    setStatus("guest");
+  };
 
   return (
     <div className="admin">
@@ -39,7 +41,7 @@ export function Admin() {
           <span className="admin__badge">Админ-панель</span>
           <nav className="admin__nav">
             <a href="#top">На сайт</a>
-            {status === 'admin' && (
+            {status === "admin" && (
               <button type="button" onClick={logout}>
                 Выйти
               </button>
@@ -49,9 +51,11 @@ export function Admin() {
       </header>
 
       <main className="admin__main">
-        {status === 'guest' && <AdminLogin onLogin={() => setStatus('admin')} />}
-        {status === 'admin' && <AdminProducts onUnauthorized={logout} />}
+        {status === "guest" && (
+          <AdminLogin onLogin={() => setStatus("admin")} />
+        )}
+        {status === "admin" && <AdminProducts onUnauthorized={logout} />}
       </main>
     </div>
-  )
+  );
 }

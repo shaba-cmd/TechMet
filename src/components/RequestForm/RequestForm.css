@@ -28,7 +28,7 @@
   border-color: var(--accent);
 }
 
-.request input[aria-invalid='true'] {
+.request input[aria-invalid="true"] {
   border-color: #e5484d;
 }
 

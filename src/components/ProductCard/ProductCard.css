@@ -5,7 +5,9 @@
   padding: 14px 14px 14px;
   background: var(--card);
   color: #333;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .card:hover {
@@ -46,7 +48,9 @@
   font: inherit;
   font-size: 14px;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .card__more:hover,
